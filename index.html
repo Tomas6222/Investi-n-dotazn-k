@@ -26,22 +26,23 @@ body{font-family:'Inter',sans-serif;background:#fff;color:var(--text);min-height
 .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(200,16,46,.06) 0%,transparent 60%);pointer-events:none}
 .hero-inner{max-width:800px;margin:0 auto;position:relative}
 .hero-rule{width:36px;height:2px;background:var(--red);margin-bottom:24px}
-.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,5.5vw,66px);font-weight:600;color:#fff;line-height:1.08;margin-bottom:20px}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,5.5vw,66px);font-weight:600;color:#fff;line-height:1.08;margin-bottom:16px}
 .hero h1 em{color:var(--gold);font-style:italic}
-.hero-sub{font-size:15px;color:rgba(255,255,255,.58);line-height:1.75;max-width:500px;margin-bottom:36px}
+.hero-sub{font-size:15px;color:rgba(255,255,255,.58);line-height:1.75;max-width:580px;margin-bottom:12px}
+.hero-sub2{font-size:13px;color:rgba(255,255,255,.38);line-height:1.6;max-width:580px;margin-bottom:32px}
 .hero-badges{display:flex;gap:10px;flex-wrap:wrap}
 .badge{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.11);border-radius:100px;padding:6px 16px;font-size:12px;font-weight:500;color:rgba(255,255,255,.5);letter-spacing:.03em}
 
-.progress-wrap{background:var(--navy2);border-bottom:1px solid rgba(255,255,255,.08);position:sticky;top:0;z-index:100}
-.progress-inner{max-width:800px;margin:0 auto;display:flex}
-.step-item{flex:1;display:flex;flex-direction:column;align-items:center;padding:13px 6px;cursor:pointer;border-bottom:3px solid transparent;transition:all .25s}
+.progress-wrap{background:var(--navy2);border-bottom:1px solid rgba(255,255,255,.08);position:sticky;top:0;z-index:100;overflow-x:auto}
+.progress-inner{max-width:800px;margin:0 auto;display:flex;min-width:600px}
+.step-item{flex:1;display:flex;flex-direction:column;align-items:center;padding:11px 4px;cursor:pointer;border-bottom:3px solid transparent;transition:all .25s}
 .step-item.active{border-bottom-color:var(--red)}
 .step-item.done{border-bottom-color:var(--gold)}
-.step-num{width:24px;height:24px;border-radius:50%;border:1.5px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:rgba(255,255,255,.3);margin-bottom:4px;transition:all .25s}
+.step-num{width:22px;height:22px;border-radius:50%;border:1.5px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:rgba(255,255,255,.3);margin-bottom:3px;transition:all .25s}
 .step-item.active .step-num{border-color:var(--red);color:var(--red);background:rgba(200,16,46,.12)}
 .step-item.done .step-num{border-color:var(--gold);background:var(--gold);color:var(--navy)}
-.step-label{font-size:10px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:rgba(255,255,255,.28)}
-.step-item.active .step-label{color:rgba(255,255,255,.75)}
+.step-label{font-size:9px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:rgba(255,255,255,.25);text-align:center}
+.step-item.active .step-label{color:rgba(255,255,255,.7)}
 .step-item.done .step-label{color:var(--gold)}
 
 .main{max-width:800px;margin:0 auto;padding:44px 24px 80px}
@@ -49,14 +50,10 @@ body{font-family:'Inter',sans-serif;background:#fff;color:var(--text);min-height
 .panel.active{display:block}
 @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 
-.panel-header{margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid var(--sand)}
+.panel-header{margin-bottom:28px;padding-bottom:22px;border-bottom:1px solid var(--sand)}
 .panel-eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:8px}
-.panel-title{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;color:var(--navy);line-height:1.15;margin-bottom:6px}
-.panel-sub{font-size:14px;color:var(--muted);line-height:1.65}
-
-.q-block{margin-bottom:28px}
-.q-label{font-size:15px;font-weight:600;color:var(--navy);margin-bottom:10px;line-height:1.4;display:block}
-.q-hint{font-size:12px;color:var(--muted);margin:-4px 0 10px}
+.panel-title{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:var(--navy);line-height:1.15;margin-bottom:6px}
+.panel-sub{font-size:14px;color:var(--muted);line-height:1.6}
 
 .opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .opts.single{grid-template-columns:1fr}
@@ -65,32 +62,41 @@ body{font-family:'Inter',sans-serif;background:#fff;color:var(--text);min-height
 .opt-card.selected{border-color:var(--navy);background:#eef2f7;color:var(--navy);font-weight:500}
 .opt-card input{accent-color:var(--navy);width:15px;height:15px;flex-shrink:0}
 
+textarea,.text-input{width:100%;padding:13px 15px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;font-family:'Inter',sans-serif;color:var(--text);background:#fff;outline:none;transition:border-color .15s}
+textarea{min-height:120px;resize:vertical}
+textarea:focus,.text-input:focus{border-color:var(--navy)}
+textarea::placeholder,.text-input::placeholder{color:#bbb}
+
 .field-group{display:grid;gap:14px}
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .field-label{font-size:11px;font-weight:700;letter-spacing:.05em;color:var(--muted);margin-bottom:5px;text-transform:uppercase}
-input[type=text],input[type=email],input[type=tel],textarea{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;font-family:'Inter',sans-serif;color:var(--text);background:#fff;outline:none;transition:border-color .15s}
-input:focus,textarea:focus{border-color:var(--navy)}
-input::placeholder,textarea::placeholder{color:#bbb}
-textarea{min-height:90px;resize:vertical}
+input[type=text],input[type=email],input[type=tel],input[type=url]{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;font-family:'Inter',sans-serif;color:var(--text);background:#fff;outline:none;transition:border-color .15s}
+input:focus{border-color:var(--navy)}
+input::placeholder{color:#bbb}
 
-.nav-row{display:flex;align-items:center;justify-content:space-between;margin-top:36px;gap:12px}
+.gdpr-block{display:flex;align-items:flex-start;gap:12px;padding:16px;background:#f7f9fc;border:1.5px solid var(--border);border-radius:8px;margin-top:8px;cursor:pointer}
+.gdpr-block input{accent-color:var(--navy);width:17px;height:17px;flex-shrink:0;margin-top:2px}
+.gdpr-block span{font-size:13px;color:#444;line-height:1.6}
+.gdpr-block.selected{border-color:var(--navy);background:#eef2f7}
+
+.nav-row{display:flex;align-items:center;justify-content:space-between;margin-top:32px;gap:12px}
 .btn-back{padding:11px 22px;background:transparent;border:1.5px solid var(--border);border-radius:8px;font-size:14px;font-weight:600;color:var(--muted);cursor:pointer;transition:all .15s;font-family:'Inter',sans-serif}
 .btn-back:hover{border-color:var(--navy);color:var(--navy)}
 .btn-next{padding:12px 30px;background:var(--navy);border:none;border-radius:8px;font-size:14px;font-weight:700;color:#fff;cursor:pointer;transition:background .15s;display:flex;align-items:center;gap:8px;font-family:'Inter',sans-serif}
 .btn-next:hover{background:var(--navy3)}
 .btn-next:disabled{background:#bbb;cursor:not-allowed}
 .btn-next svg{width:14px;height:14px}
-
 .err-banner{display:none;background:#fff5f7;border:1.5px solid var(--red);border-radius:8px;padding:11px 14px;font-size:13px;color:var(--red);margin-top:14px}
 
-.success-screen{display:none;text-align:center;padding:72px 24px;max-width:500px;margin:0 auto}
+.success-screen{display:none;text-align:center;padding:72px 24px;max-width:560px;margin:0 auto}
 .success-icon{width:64px;height:64px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
 .success-icon svg{width:30px;height:30px;color:#fff}
-.success-screen h2{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:var(--navy);margin-bottom:10px}
-.success-screen p{font-size:15px;color:var(--muted);line-height:1.7}
+.success-screen h2{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:var(--navy);margin-bottom:12px}
+.success-screen p{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:10px}
+.success-screen .sig{margin-top:24px;font-size:13px;color:var(--muted);font-style:italic}
 
-.contact-card{background:var(--navy);border-radius:12px;padding:32px;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:start;margin-top:44px}
-.contact-photo{width:84px;height:84px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid rgba(255,255,255,.15)}
+.contact-card{background:var(--navy);border-radius:12px;padding:32px;display:block;margin-top:44px;text-align:center}
+.contact-photo{width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid rgba(255,255,255,.15)}
 .ctc-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
 .ctc-name{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;color:#fff;margin-bottom:2px}
 .ctc-role{font-size:13px;color:rgba(255,255,255,.42);margin-bottom:14px}
@@ -128,83 +134,103 @@ textarea{min-height:90px;resize:vertical}
   <div class="hero-inner">
     <div class="hero-rule"></div>
     <h1>Neveřejné<br><em>investiční</em> příležitosti</h1>
-    <p class="hero-sub">Vyplňte investiční profil a dostávejte vybrané nemovitostní příležitosti přímo od nás — diskrétně, exkluzivně, ještě před zveřejněním.</p>
+    <p class="hero-sub">Nejzajímavější realitní příležitosti se často neobjeví ve veřejné inzerci. Dřív, než se dostanou na trh, o nich rozhoduje úzký okruh investorů, kteří vědí, co hledají.</p>
+    <p class="hero-sub2">Vyplňte krátký investiční profil a nastavte si, jaké neveřejné nabídky Vám máme posílat přednostně. Vyplnění zabere přibližně 2–3 minuty.</p>
     <div class="hero-badges">
       <span class="badge">Brno a jižní Morava</span>
-      <span class="badge">Pozemky · Bytové domy · Komerční</span>
-      <span class="badge">Diskrétní. Exkluzivní. Příležitosti.</span>
+      <span class="badge">Diskrétní · Exkluzivní · Příležitosti</span>
+      <span class="badge">2–3 minuty</span>
     </div>
   </div>
 </div>
 
 <nav class="progress-wrap" id="progress-nav">
   <div class="progress-inner">
-    <div class="step-item active" onclick="goTo(0)"><div class="step-num">1</div><div class="step-label">Typ</div></div>
-    <div class="step-item" onclick="goTo(1)"><div class="step-num">2</div><div class="step-label">Lokalita</div></div>
-    <div class="step-item" onclick="goTo(2)"><div class="step-num">3</div><div class="step-label">Velikost</div></div>
-    <div class="step-item" onclick="goTo(3)"><div class="step-num">4</div><div class="step-label">Priority</div></div>
-    <div class="step-item" onclick="goTo(4)"><div class="step-num">5</div><div class="step-label">Hledám</div></div>
-    <div class="step-item" onclick="goTo(5)"><div class="step-num">6</div><div class="step-label">Reakce</div></div>
-    <div class="step-item" onclick="goTo(6)"><div class="step-num">7</div><div class="step-label">NDA</div></div>
-    <div class="step-item" onclick="goTo(7)"><div class="step-num">8</div><div class="step-label">Kanál</div></div>
-    <div class="step-item" onclick="goTo(8)"><div class="step-num">9</div><div class="step-label">Kontakt</div></div>
+    <div class="step-item active" onclick="goTo(0)"><div class="step-num">1</div><div class="step-label">Role</div></div>
+    <div class="step-item" onclick="goTo(1)"><div class="step-num">2</div><div class="step-label">Typ</div></div>
+    <div class="step-item" onclick="goTo(2)"><div class="step-num">3</div><div class="step-label">Lokalita</div></div>
+    <div class="step-item" onclick="goTo(3)"><div class="step-num">4</div><div class="step-label">Velikost</div></div>
+    <div class="step-item" onclick="goTo(4)"><div class="step-num">5</div><div class="step-label">Finance</div></div>
+    <div class="step-item" onclick="goTo(5)"><div class="step-num">6</div><div class="step-label">Priority</div></div>
+    <div class="step-item" onclick="goTo(6)"><div class="step-num">7</div><div class="step-label">Zdroje</div></div>
+    <div class="step-item" onclick="goTo(7)"><div class="step-num">8</div><div class="step-label">Hledám</div></div>
+    <div class="step-item" onclick="goTo(8)"><div class="step-num">9</div><div class="step-label">Reakce</div></div>
+    <div class="step-item" onclick="goTo(9)"><div class="step-num">10</div><div class="step-label">NDA</div></div>
+    <div class="step-item" onclick="goTo(10)"><div class="step-num">11</div><div class="step-label">Očekávání</div></div>
+    <div class="step-item" onclick="goTo(11)"><div class="step-num">12</div><div class="step-label">Kontakt</div></div>
   </div>
 </nav>
 
 <main class="main">
 <form id="vf" onsubmit="return false">
 
-<!-- P0: Typy -->
+<!-- P0: Role -->
 <div class="panel active" id="p0">
   <div class="panel-header">
-    <p class="panel-eyebrow">Otázka 1 z 9</p>
-    <h2 class="panel-title">Jaké typy příležitostí Vás zajímají?</h2>
-    <p class="panel-sub">Můžete vybrat více možností.</p>
+    <p class="panel-eyebrow">Otázka 1 z 12</p>
+    <h2 class="panel-title">Jaká je Vaše role při nákupu investičních příležitostí?</h2>
   </div>
-  <div class="opts">
-    <label class="opt-card"><input type="checkbox" name="typ" value="Stavební pozemky"><span>Stavební pozemky</span></label>
-    <label class="opt-card"><input type="checkbox" name="typ" value="Pozemky pro bytovou výstavbu"><span>Pozemky pro bytovou výstavbu</span></label>
-    <label class="opt-card"><input type="checkbox" name="typ" value="Bytové domy"><span>Bytové domy</span></label>
-    <label class="opt-card"><input type="checkbox" name="typ" value="Bytové jednotky (portfolio)"><span>Bytové jednotky (portfolio)</span></label>
-    <label class="opt-card"><input type="checkbox" name="typ" value="Developerské projekty"><span>Developerské projekty</span></label>
-    <label class="opt-card"><input type="checkbox" name="typ" value="Hotely / penziony / resorty"><span>Hotely / penziony / resorty</span></label>
-    <label class="opt-card"><input type="checkbox" name="typ" value="Komerční objekty"><span>Komerční objekty</span></label>
-    <label class="opt-card"><input type="checkbox" name="typ" value="Průmyslové areály / sklady"><span>Průmyslové areály / sklady</span></label>
-    <label class="opt-card"><input type="checkbox" name="typ" value="Brownfieldy"><span>Brownfieldy</span></label>
-    <label class="opt-card"><input type="checkbox" name="typ" value="Nemovitosti k rekonstrukci"><span>Nemovitosti k rekonstrukci</span></label>
-    <label class="opt-card"><input type="checkbox" name="typ" value="Výnosové – bytové"><span>Výnosové – bytové</span></label>
-    <label class="opt-card"><input type="checkbox" name="typ" value="Výnosové – komerční"><span>Výnosové – komerční</span></label>
+  <div class="opts single">
+    <label class="opt-card"><input type="radio" name="role" value="Rozhoduji přímo o nákupu"><span>Rozhoduji přímo o nákupu</span></label>
+    <label class="opt-card"><input type="radio" name="role" value="Jsem spolurozhodující osoba"><span>Jsem spolurozhodující osoba</span></label>
+    <label class="opt-card"><input type="radio" name="role" value="Jsem zprostředkovatel / broker"><span>Jsem zprostředkovatel / broker</span></label>
+    <label class="opt-card"><input type="radio" name="role" value="Zatím pouze sleduji trh"><span>Zatím pouze sleduji trh</span></label>
+    <label class="opt-card"><input type="radio" name="role" value="Jiná role"><span>Jiná role</span></label>
   </div>
   <div class="nav-row"><div></div><button class="btn-next" onclick="next(0)">Pokračovat <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
 </div>
 
-<!-- P1: Lokality -->
+<!-- P1: Typy -->
 <div class="panel" id="p1">
   <div class="panel-header">
-    <p class="panel-eyebrow">Otázka 2 z 9</p>
-    <h2 class="panel-title">Jaké lokality Vás zajímají?</h2>
-    <p class="panel-sub">Vyberte všechny relevantní oblasti.</p>
+    <p class="panel-eyebrow">Otázka 2 z 12</p>
+    <h2 class="panel-title">Jaké typy příležitostí Vás zajímají?</h2>
+    <p class="panel-sub">Můžete vybrat více možností.</p>
   </div>
-  <div class="opts">
-    <label class="opt-card"><input type="checkbox" name="lok" value="Brno"><span>Brno</span></label>
-    <label class="opt-card"><input type="checkbox" name="lok" value="Okolí Brna"><span>Okolí Brna</span></label>
-    <label class="opt-card"><input type="checkbox" name="lok" value="Břeclavsko"><span>Břeclavsko</span></label>
-    <label class="opt-card"><input type="checkbox" name="lok" value="Hodonínsko"><span>Hodonínsko</span></label>
-    <label class="opt-card"><input type="checkbox" name="lok" value="Kyjovsko"><span>Kyjovsko</span></label>
-    <label class="opt-card"><input type="checkbox" name="lok" value="Vyškovsko"><span>Vyškovsko</span></label>
-    <label class="opt-card"><input type="checkbox" name="lok" value="Jihomoravský kraj"><span>Jihomoravský kraj</span></label>
-    <label class="opt-card"><input type="checkbox" name="lok" value="Celá ČR"><span>Celá ČR</span></label>
-    <label class="opt-card"><input type="checkbox" name="lok" value="Slovensko"><span>Slovensko</span></label>
+  <div class="opts single">
+    <label class="opt-card"><input type="checkbox" name="typ" value="Pozemky pro bytovou nebo komerční výstavbu"><span>Pozemky pro bytovou nebo komerční výstavbu</span></label>
+    <label class="opt-card"><input type="checkbox" name="typ" value="Bytové domy / činžovní domy"><span>Bytové domy / činžovní domy</span></label>
+    <label class="opt-card"><input type="checkbox" name="typ" value="Bytové jednotky pro investiční portfolio"><span>Bytové jednotky pro investiční portfolio</span></label>
+    <label class="opt-card"><input type="checkbox" name="typ" value="Hotely / penziony / resorty / lázeňské a wellness objekty"><span>Hotely / penziony / resorty / lázeňské a wellness objekty</span></label>
+    <label class="opt-card"><input type="checkbox" name="typ" value="Komerční objekty / retail / kanceláře / průmyslové areály / sklady"><span>Komerční objekty / retail / kanceláře / průmyslové areály / sklady</span></label>
+    <label class="opt-card"><input type="checkbox" name="typ" value="Brownfieldy"><span>Brownfieldy</span></label>
+    <label class="opt-card"><input type="checkbox" name="typ" value="Nemovitosti k rekonstrukci nebo přestavbě"><span>Nemovitosti k rekonstrukci nebo přestavbě</span></label>
+    <label class="opt-card"><input type="checkbox" name="typ" value="Jiné"><span>Jiné</span></label>
   </div>
   <div class="nav-row"><button class="btn-back" onclick="prev(1)">← Zpět</button><button class="btn-next" onclick="next(1)">Pokračovat <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
 </div>
 
-<!-- P2: Velikost -->
+<!-- P2: Lokality -->
 <div class="panel" id="p2">
   <div class="panel-header">
-    <p class="panel-eyebrow">Otázka 3 z 9</p>
-    <h2 class="panel-title">V jaké velikosti investice se běžně pohybujete?</h2>
-    <p class="panel-sub">Vyberte jednu možnost.</p>
+    <p class="panel-eyebrow">Otázka 3 z 12</p>
+    <h2 class="panel-title">Jaké lokality Vás zajímají?</h2>
+    <p class="panel-sub">Můžete vybrat více možností.</p>
+  </div>
+  <div class="opts">
+    <label class="opt-card"><input type="checkbox" name="lok" value="Brno"><span>Brno</span></label>
+    <label class="opt-card"><input type="checkbox" name="lok" value="Okolí Brna"><span>Okolí Brna</span></label>
+    <label class="opt-card"><input type="checkbox" name="lok" value="Vyškovsko"><span>Vyškovsko</span></label>
+    <label class="opt-card"><input type="checkbox" name="lok" value="Slavkov u Brna a okolí"><span>Slavkov u Brna a okolí</span></label>
+    <label class="opt-card"><input type="checkbox" name="lok" value="Břeclavsko"><span>Břeclavsko</span></label>
+    <label class="opt-card"><input type="checkbox" name="lok" value="Hodonínsko"><span>Hodonínsko</span></label>
+    <label class="opt-card"><input type="checkbox" name="lok" value="Kyjovsko"><span>Kyjovsko</span></label>
+    <label class="opt-card"><input type="checkbox" name="lok" value="Jihomoravský kraj – jiné okresy"><span>Jihomoravský kraj – jiné okresy</span></label>
+    <label class="opt-card"><input type="checkbox" name="lok" value="Olomoucký kraj"><span>Olomoucký kraj</span></label>
+    <label class="opt-card"><input type="checkbox" name="lok" value="Zlínský kraj"><span>Zlínský kraj</span></label>
+    <label class="opt-card"><input type="checkbox" name="lok" value="Moravskoslezský kraj / Ostravsko"><span>Moravskoslezský kraj / Ostravsko</span></label>
+    <label class="opt-card"><input type="checkbox" name="lok" value="Celá Morava"><span>Celá Morava</span></label>
+    <label class="opt-card"><input type="checkbox" name="lok" value="Celá ČR"><span>Celá ČR</span></label>
+    <label class="opt-card"><input type="checkbox" name="lok" value="Slovensko"><span>Slovensko</span></label>
+  </div>
+  <div class="nav-row"><button class="btn-back" onclick="prev(2)">← Zpět</button><button class="btn-next" onclick="next(2)">Pokračovat <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
+</div>
+
+<!-- P3: Velikost -->
+<div class="panel" id="p3">
+  <div class="panel-header">
+    <p class="panel-eyebrow">Otázka 4 z 12</p>
+    <h2 class="panel-title">V jakém investičním rozmezí pro Vás dává smysl nabídky posuzovat?</h2>
   </div>
   <div class="opts single">
     <label class="opt-card"><input type="radio" name="vel" value="Do 10 mil. Kč"><span>Do 10 mil. Kč</span></label>
@@ -215,14 +241,31 @@ textarea{min-height:90px;resize:vertical}
     <label class="opt-card"><input type="radio" name="vel" value="250+ mil. Kč"><span>250+ mil. Kč</span></label>
     <label class="opt-card"><input type="radio" name="vel" value="Záleží na konkrétní příležitosti"><span>Záleží na konkrétní příležitosti</span></label>
   </div>
-  <div class="nav-row"><button class="btn-back" onclick="prev(2)">← Zpět</button><button class="btn-next" onclick="next(2)">Pokračovat <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
+  <div class="nav-row"><button class="btn-back" onclick="prev(3)">← Zpět</button><button class="btn-next" onclick="next(3)">Pokračovat <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
 </div>
 
-<!-- P3: Priority -->
-<div class="panel" id="p3">
+<!-- P4: Finance -->
+<div class="panel" id="p4">
   <div class="panel-header">
-    <p class="panel-eyebrow">Otázka 4 z 9</p>
-    <h2 class="panel-title">Co je pro Vás při prvním posouzení nejdůležitější?</h2>
+    <p class="panel-eyebrow">Otázka 5 z 12</p>
+    <h2 class="panel-title">Jak máte obvykle připravené financování?</h2>
+  </div>
+  <div class="opts single">
+    <label class="opt-card"><input type="radio" name="fin" value="Vlastní zdroje"><span>Vlastní zdroje</span></label>
+    <label class="opt-card"><input type="radio" name="fin" value="Bankovní financování"><span>Bankovní financování</span></label>
+    <label class="opt-card"><input type="radio" name="fin" value="Kombinace vlastních zdrojů a banky"><span>Kombinace vlastních zdrojů a banky</span></label>
+    <label class="opt-card"><input type="radio" name="fin" value="Investor / investiční partner"><span>Investor / investiční partner</span></label>
+    <label class="opt-card"><input type="radio" name="fin" value="Řešíme vždy podle konkrétní příležitosti"><span>Řešíme vždy podle konkrétní příležitosti</span></label>
+    <label class="opt-card"><input type="radio" name="fin" value="Zatím pouze mapujeme trh"><span>Zatím pouze mapujeme trh</span></label>
+  </div>
+  <div class="nav-row"><button class="btn-back" onclick="prev(4)">← Zpět</button><button class="btn-next" onclick="next(4)">Pokračovat <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
+</div>
+
+<!-- P5: Priority -->
+<div class="panel" id="p5">
+  <div class="panel-header">
+    <p class="panel-eyebrow">Otázka 6 z 12</p>
+    <h2 class="panel-title">Co je pro Vás při prvním posouzení nabídky nejdůležitější?</h2>
     <p class="panel-sub">Vyberte maximálně 3 možnosti.</p>
   </div>
   <div class="opts">
@@ -233,99 +276,118 @@ textarea{min-height:90px;resize:vertical}
     <label class="opt-card"><input type="checkbox" name="pri" value="Stavební povolení"><span>Stavební povolení</span></label>
     <label class="opt-card"><input type="checkbox" name="pri" value="Výnos / nájemní smlouvy"><span>Výnos / nájemní smlouvy</span></label>
     <label class="opt-card"><input type="checkbox" name="pri" value="Technický stav"><span>Technický stav</span></label>
-    <label class="opt-card"><input type="checkbox" name="pri" value="Možnost přestavby"><span>Možnost přestavby</span></label>
+    <label class="opt-card"><input type="checkbox" name="pri" value="Možnost přestavby nebo změny využití"><span>Možnost přestavby nebo změny využití</span></label>
     <label class="opt-card"><input type="checkbox" name="pri" value="Rychlost transakce"><span>Rychlost transakce</span></label>
     <label class="opt-card"><input type="checkbox" name="pri" value="Právní stav"><span>Právní stav</span></label>
     <label class="opt-card"><input type="checkbox" name="pri" value="Důvod prodeje"><span>Důvod prodeje</span></label>
     <label class="opt-card"><input type="checkbox" name="pri" value="Rizika projektu"><span>Rizika projektu</span></label>
   </div>
-  <div class="nav-row"><button class="btn-back" onclick="prev(3)">← Zpět</button><button class="btn-next" onclick="next(3)">Pokračovat <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
+  <div class="nav-row"><button class="btn-back" onclick="prev(5)">← Zpět</button><button class="btn-next" onclick="next(5)">Pokračovat <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
 </div>
 
-<!-- P4: Hledam -->
-<div class="panel" id="p4">
+<!-- P6: Zdroje -->
+<div class="panel" id="p6">
   <div class="panel-header">
-    <p class="panel-eyebrow">Otázka 5 z 9</p>
-    <h2 class="panel-title">Jakou příležitost aktuálně hledáte?</h2>
-    <p class="panel-sub">Popište konkrétně — čím více víme, tím lépe Vám můžeme pomoci.</p>
+    <p class="panel-eyebrow">Otázka 7 z 12</p>
+    <h2 class="panel-title">Jak dnes nejčastěji získáváte neveřejné investiční příležitosti?</h2>
+    <p class="panel-sub">Můžete vybrat více možností.</p>
   </div>
-  <textarea name="hl" placeholder="Např. pozemek pro bytovou výstavbu v okolí Brna, bytový dům k rekonstrukci, hotel s potenciálem…" style="min-height:140px"></textarea>
-  <div class="nav-row"><button class="btn-back" onclick="prev(4)">← Zpět</button><button class="btn-next" onclick="next(4)">Pokračovat <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
+  <div class="opts single">
+    <label class="opt-card"><input type="checkbox" name="zdroj" value="Vlastní síť kontaktů"><span>Vlastní síť kontaktů</span></label>
+    <label class="opt-card"><input type="checkbox" name="zdroj" value="Realitní kanceláře"><span>Realitní kanceláře</span></label>
+    <label class="opt-card"><input type="checkbox" name="zdroj" value="Developeři / investoři"><span>Developeři / investoři</span></label>
+    <label class="opt-card"><input type="checkbox" name="zdroj" value="Banky / insolvence / právníci"><span>Banky / insolvence / právníci</span></label>
+    <label class="opt-card"><input type="checkbox" name="zdroj" value="Občas mi někdo něco pošle"><span>Občas mi někdo něco pošle</span></label>
+    <label class="opt-card"><input type="checkbox" name="zdroj" value="Nemám stabilní zdroj neveřejných nabídek"><span>Nemám stabilní zdroj neveřejných nabídek</span></label>
+  </div>
+  <div class="nav-row"><button class="btn-back" onclick="prev(6)">← Zpět</button><button class="btn-next" onclick="next(6)">Pokračovat <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
 </div>
 
-<!-- P5: Reakce -->
-<div class="panel" id="p5">
+<!-- P7: Hledám -->
+<div class="panel" id="p7">
   <div class="panel-header">
-    <p class="panel-eyebrow">Otázka 6 z 9</p>
-    <h2 class="panel-title">Jak rychle umíte reagovat na zajímavou nabídku?</h2>
-    <p class="panel-sub">Neveřejné příležitosti mají krátkou životnost.</p>
+    <p class="panel-eyebrow">Otázka 8 z 12</p>
+    <h2 class="panel-title">Jakou příležitost aktuálně aktivně hledáte?</h2>
+    <p class="panel-sub">Čím konkrétněji popíšete, tím lépe Vám můžeme pomoci.</p>
+  </div>
+  <textarea name="hl" placeholder="Například pozemek pro bytovou výstavbu v okolí Brna, bytový dům k rekonstrukci, hotel s potenciálem v Beskydech, průmyslový areál s nájemcem na D1…"></textarea>
+  <div class="nav-row"><button class="btn-back" onclick="prev(7)">← Zpět</button><button class="btn-next" onclick="next(7)">Pokračovat <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
+</div>
+
+<!-- P8: Reakce -->
+<div class="panel" id="p8">
+  <div class="panel-header">
+    <p class="panel-eyebrow">Otázka 9 z 12</p>
+    <h2 class="panel-title">Za jak dlouho dokážete předběžně posoudit zajímavou neveřejnou nabídku?</h2>
+    <p class="panel-sub">Tím máme na mysli první reakci — zda Vás nabídka zaujala a má smysl pokračovat, nebo není relevantní.</p>
   </div>
   <div class="opts single">
     <label class="opt-card"><input type="radio" name="rea" value="Do 24 hodin"><span>Do 24 hodin</span></label>
     <label class="opt-card"><input type="radio" name="rea" value="Do 3 dnů"><span>Do 3 dnů</span></label>
     <label class="opt-card"><input type="radio" name="rea" value="Do týdne"><span>Do týdne</span></label>
     <label class="opt-card"><input type="radio" name="rea" value="Do 14 dnů"><span>Do 14 dnů</span></label>
-    <label class="opt-card"><input type="radio" name="rea" value="Měsíc a více – dle schvalovacího procesu"><span>Měsíc a více – dle schvalovacího procesu</span></label>
-    <label class="opt-card"><input type="radio" name="rea" value="Podle složitosti nabídky"><span>Podle složitosti nabídky</span></label>
+    <label class="opt-card"><input type="radio" name="rea" value="Déle než 14 dnů, například kvůli internímu schvalování"><span>Déle než 14 dnů, například kvůli internímu schvalování</span></label>
+    <label class="opt-card"><input type="radio" name="rea" value="Záleží na složitosti nabídky a dostupnosti podkladů"><span>Záleží na složitosti nabídky a dostupnosti podkladů</span></label>
   </div>
-  <div class="nav-row"><button class="btn-back" onclick="prev(5)">← Zpět</button><button class="btn-next" onclick="next(5)">Pokračovat <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
+  <div class="nav-row"><button class="btn-back" onclick="prev(8)">← Zpět</button><button class="btn-next" onclick="next(8)">Pokračovat <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
 </div>
 
-<!-- P6: NDA -->
-<div class="panel" id="p6">
+<!-- P9: NDA -->
+<div class="panel" id="p9">
   <div class="panel-header">
-    <p class="panel-eyebrow">Otázka 7 z 9</p>
+    <p class="panel-eyebrow">Otázka 10 z 12</p>
     <h2 class="panel-title">Jste ochotni u citlivých nabídek podepsat NDA?</h2>
-    <p class="panel-sub">Některé příležitosti vyžadují diskrétnost.</p>
   </div>
   <div class="opts single">
     <label class="opt-card"><input type="radio" name="nda" value="Ano"><span>Ano</span></label>
     <label class="opt-card"><input type="radio" name="nda" value="Ano, pokud mě nabídka předběžně zaujme"><span>Ano, pokud mě nabídka předběžně zaujme</span></label>
-    <label class="opt-card"><input type="radio" name="nda" value="Podle konkrétní nabídky"><span>Podle konkrétní nabídky</span></label>
     <label class="opt-card"><input type="radio" name="nda" value="Ne"><span>Ne</span></label>
+    <label class="opt-card"><input type="radio" name="nda" value="Podle konkrétní nabídky"><span>Podle konkrétní nabídky</span></label>
   </div>
-  <div class="nav-row"><button class="btn-back" onclick="prev(6)">← Zpět</button><button class="btn-next" onclick="next(6)">Pokračovat <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
+  <div class="nav-row"><button class="btn-back" onclick="prev(9)">← Zpět</button><button class="btn-next" onclick="next(9)">Pokračovat <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
 </div>
 
-<!-- P7: Kanal -->
-<div class="panel" id="p7">
+<!-- P10: Očekávání -->
+<div class="panel" id="p10">
   <div class="panel-header">
-    <p class="panel-eyebrow">Otázka 8 z 9</p>
-    <h2 class="panel-title">Jak Vám máme nabídky zasílat?</h2>
-    <p class="panel-sub">Vyberte preferovaný způsob komunikace.</p>
+    <p class="panel-eyebrow">Otázka 11 z 12</p>
+    <h2 class="panel-title">Co byste od ideálního zdroje neveřejných nabídek očekávali navíc?</h2>
+    <p class="panel-sub">Vaše odpověď nám pomůže posílat Vám relevantnější nabídky.</p>
   </div>
-  <div class="opts">
-    <label class="opt-card"><input type="checkbox" name="kan" value="E-mail"><span>E-mail</span></label>
-    <label class="opt-card"><input type="checkbox" name="kan" value="Telefon"><span>Telefon</span></label>
-    <label class="opt-card"><input type="checkbox" name="kan" value="WhatsApp"><span>WhatsApp</span></label>
-    <label class="opt-card"><input type="checkbox" name="kan" value="LinkedIn"><span>LinkedIn</span></label>
-    <label class="opt-card"><input type="checkbox" name="kan" value="Osobní schůzka"><span>Osobní schůzka</span></label>
-  </div>
-  <div class="nav-row"><button class="btn-back" onclick="prev(7)">← Zpět</button><button class="btn-next" onclick="next(7)">Pokračovat <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
+  <textarea name="ocekavani" placeholder="Co Vám u stávajících zdrojů chybí? Co by Vám usnadnilo rozhodování?"></textarea>
+  <div class="nav-row"><button class="btn-back" onclick="prev(10)">← Zpět</button><button class="btn-next" onclick="next(10)">Pokračovat <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button></div>
 </div>
 
-<!-- P8: Kontakt -->
-<div class="panel" id="p8">
+<!-- P11: Kontakt -->
+<div class="panel" id="p11">
   <div class="panel-header">
-    <p class="panel-eyebrow">Otázka 9 z 9</p>
+    <p class="panel-eyebrow">Otázka 12 z 12</p>
     <h2 class="panel-title">Kontaktní údaje</h2>
-    <p class="panel-sub">Poslední krok. Vaše údaje slouží výhradně k zasílání relevantních neveřejných nabídek.</p>
+    <p class="panel-sub">Uveďte prosím osobu, která má ve Vaší firmě na starosti posuzování nebo nákup investičních příležitostí.</p>
   </div>
   <div class="field-group">
     <div class="field-row">
       <div><p class="field-label">Jméno a příjmení *</p><input type="text" id="f-jm" name="jmeno" placeholder="Ing. Jan Novák"></div>
-      <div><p class="field-label">Firma / společnost</p><input type="text" name="firma" placeholder="Novák Invest s.r.o."></div>
+      <div><p class="field-label">Firma / investiční skupina</p><input type="text" name="firma" placeholder="Novák Invest s.r.o."></div>
     </div>
     <div class="field-row">
-      <div><p class="field-label">Funkce / pozice</p><input type="text" name="funkce" placeholder="Jednatel, investor…"></div>
       <div><p class="field-label">Telefon *</p><input type="tel" name="tel" placeholder="+420 000 000 000"></div>
+      <div><p class="field-label">E-mail *</p><input type="email" id="f-em" name="email" placeholder="jan@firma.cz"></div>
     </div>
-    <div><p class="field-label">E-mail *</p><input type="email" id="f-em" name="email" placeholder="jan@firma.cz"></div>
-    <div><p class="field-label">Poznámka</p><textarea name="poz" placeholder="Cokoliv dalšího, co chcete sdělit…"></textarea></div>
+    <div class="field-row">
+      <div><p class="field-label">Web firmy</p><input type="url" name="web" placeholder="www.firma.cz"></div>
+      <div><p class="field-label">LinkedIn profil</p><input type="url" name="linkedin" placeholder="linkedin.com/in/..."></div>
+    </div>
+    <div><p class="field-label">Poznámka / specifika</p><textarea name="poz" placeholder="Cokoliv dalšího, co chcete sdělit…" style="min-height:80px"></textarea></div>
+
+    <label class="gdpr-block" id="gdpr-label">
+      <input type="checkbox" id="gdpr" name="gdpr">
+      <span>Souhlasím se zpracováním uvedených údajů za účelem zasílání relevantních investičních příležitostí a obchodní komunikace ze strany RE/MAX Delta. Beru na vědomí, že svůj souhlas mohu kdykoliv odvolat.</span>
+    </label>
   </div>
-  <div class="err-banner" id="vf-err">Vyplňte prosím jméno, e-mail a telefon.</div>
+  <div class="err-banner" id="vf-err">Vyplňte prosím jméno, e-mail, telefon a potvrďte souhlas se zpracováním údajů.</div>
   <div class="nav-row">
-    <button class="btn-back" onclick="prev(8)">← Zpět</button>
+    <button class="btn-back" onclick="prev(11)">← Zpět</button>
     <button class="btn-next" id="vf-btn" onclick="submitForm()">Odeslat profil <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
   </div>
 </div>
@@ -334,12 +396,15 @@ textarea{min-height:90px;resize:vertical}
 
 <div class="success-screen" id="vf-ok">
   <div class="success-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></div>
-  <h2>Profil odeslán</h2>
-  <p>Děkujeme za vyplnění. Jakmile se objeví příležitost odpovídající Vašemu zaměření, ozveme se Vám jako prvním — ještě před zveřejněním nabídky.</p>
+  <h2>Děkujeme za vyplnění</h2>
+  <p>Jakmile se objeví neveřejná příležitost odpovídající Vašemu zaměření, ozveme se Vám přednostně – ještě před širším zveřejněním nabídky.</p>
+  <p>U neveřejných příležitostí rozhoduje relevance. Neposíláme vše všem, ale pouze nabídky, které odpovídají konkrétnímu investičnímu profilu.</p>
+  <p>Pokud se Vaše preference v budoucnu změní, stačí nám kdykoliv napsat a profil Vám aktualizujeme.</p>
+  <p class="sig">S pozdravem,<br><strong>Ing. Tomáš Frýdek</strong><br>RE/MAX Delta<br><a href="tel:+420607449860">+420 607 449 860</a> · <a href="mailto:tomas@frydek.cz">tomas@frydek.cz</a> · <a href="https://www.remaxdelta.cz">remaxdelta.cz</a></p>
 </div>
 
 <div class="contact-card">
-  <img class="contact-photo" src="data:image/jpeg;base64,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" alt="Ing. Tomáš Frýdek">
+  <img class="contact-photo" style="display:block;margin:0 auto 16px" src="data:image/jpeg;base64,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" alt="Ing. Tomáš Frýdek">
   <div>
     <p class="ctc-label">Váš kontakt pro investiční příležitosti</p>
     <p class="ctc-name">Ing. Tomáš Frýdek</p>
@@ -362,17 +427,20 @@ textarea{min-height:90px;resize:vertical}
 </footer>
 
 <script>
-var cur=0,total=9;
+var cur=0,total=12;
 
 document.querySelectorAll('.opt-card input').forEach(function(inp){
   inp.addEventListener('change',function(){
     var card=this.closest('.opt-card');
     if(this.type==='radio'){
       document.querySelectorAll('input[name="'+this.name+'"]').forEach(function(r){r.closest('.opt-card').classList.remove('selected')});
-    }
-    card.classList.toggle('selected',this.checked||this.type==='radio');
-    if(this.type==='radio') card.classList.add('selected');
+      card.classList.add('selected');
+    }else{card.classList.toggle('selected',this.checked)}
   });
+});
+
+document.getElementById('gdpr').addEventListener('change',function(){
+  document.getElementById('gdpr-label').classList.toggle('selected',this.checked);
 });
 
 document.querySelectorAll('input[name="pri"]').forEach(function(c){
@@ -404,34 +472,36 @@ async function submitForm(){
   var jm=document.getElementById('f-jm').value.trim();
   var em=document.getElementById('f-em').value.trim();
   var tel=document.querySelector('[name="tel"]').value.trim();
+  var gdpr=document.getElementById('gdpr').checked;
   var err=document.getElementById('vf-err');
   err.style.display='none';
-  if(!jm||!em||!tel){err.style.display='block';return}
+  if(!jm||!em||!tel||!gdpr){err.style.display='block';return}
 
   var btn=document.getElementById('vf-btn');
   btn.disabled=true;btn.textContent='Odesílám…';
 
   var jms=jm.split(' ');
   var data={
-    jmeno: jm,
-    email: em,
-    telefon: tel,
-    firma: document.querySelector('[name="firma"]').value,
-    funkce: document.querySelector('[name="funkce"]').value,
-    typ_nemovitosti: vdG('typ'),
-    lokality: vdG('lok'),
-    velikost_investice: vdR('vel'),
-    priority: vdG('pri'),
-    hledam: document.querySelector('[name="hl"]').value,
-    rychlost_reakce: vdR('rea'),
-    nda: vdR('nda'),
-    kanal_komunikace: vdG('kan'),
-    poznamka: document.querySelector('[name="poz"]').value,
-    _subject: 'Nový VIP investor: '+jm
+    jmeno:jm, email:em, telefon:tel,
+    firma:document.querySelector('[name="firma"]').value,
+    web:document.querySelector('[name="web"]').value,
+    linkedin:document.querySelector('[name="linkedin"]').value,
+    role:vdR('role'),
+    typ_nemovitosti:vdG('typ'),
+    lokality:vdG('lok'),
+    velikost_investice:vdR('vel'),
+    financovani:vdR('fin'),
+    priority:vdG('pri'),
+    zdroje_nabidek:vdG('zdroj'),
+    hledam:document.querySelector('[name="hl"]').value,
+    rychlost_reakce:vdR('rea'),
+    nda:vdR('nda'),
+    ocekavani:document.querySelector('[name="ocekavani"]').value,
+    poznamka:document.querySelector('[name="poz"]').value,
+    _subject:'Nový VIP investor: '+jm
   };
 
   try{
-    // 1) Formspree - e-mail notifikace
     var r=await fetch('https://formspree.io/f/xqeorpzj',{
       method:'POST',
       headers:{'Content-Type':'application/json','Accept':'application/json'},
@@ -439,33 +509,29 @@ async function submitForm(){
     });
     if(!r.ok) throw new Error();
 
-    // 2) Smartemailing - přidání do seznamu
     var cf=[
+      {customfield_id:'role',value:vdR('role')},
       {customfield_id:'typ_nemovitosti',value:vdG('typ')},
       {customfield_id:'lokality',value:vdG('lok')},
       {customfield_id:'velikost_investice',value:vdR('vel')},
+      {customfield_id:'financovani',value:vdR('fin')},
       {customfield_id:'priority',value:vdG('pri')},
+      {customfield_id:'zdroje_nabidek',value:vdG('zdroj')},
       {customfield_id:'hledam',value:document.querySelector('[name="hl"]').value},
       {customfield_id:'rychlost_reakce',value:vdR('rea')},
       {customfield_id:'nda',value:vdR('nda')},
-      {customfield_id:'kanal_komunikace',value:vdG('kan')},
+      {customfield_id:'ocekavani',value:document.querySelector('[name="ocekavani"]').value},
       {customfield_id:'firma',value:document.querySelector('[name="firma"]').value},
-      {customfield_id:'funkce',value:document.querySelector('[name="funkce"]').value},
       {customfield_id:'telefon',value:tel},
+      {customfield_id:'web',value:document.querySelector('[name="web"]').value},
+      {customfield_id:'linkedin',value:document.querySelector('[name="linkedin"]').value},
       {customfield_id:'poznamka',value:document.querySelector('[name="poz"]').value}
     ].filter(function(f){return f.value});
 
     fetch('https://app.smartemailing.cz/api/v3/import-contacts',{
-      method:'POST',
-      mode:'no-cors',
+      method:'POST',mode:'no-cors',
       headers:{'Content-Type':'application/json','Authorization':'Basic '+btoa('katerina.rasinova@remaxdelta.cz:acihhx9ep4xzfsr7xgtafjru2xip8xfa2bmpqdn8')},
-      body:JSON.stringify({data:[{
-        email:em,
-        name:jms[0]||'',
-        surname:jms.slice(1).join(' ')||'',
-        contact_lists:[{id:297,status:'confirmed'}],
-        custom_fields:cf
-      }]})
+      body:JSON.stringify({data:[{email:em,name:jms[0]||'',surname:jms.slice(1).join(' ')||'',contact_lists:[{id:297,status:'confirmed'}],custom_fields:cf}]})
     }).catch(function(){});
 
     document.querySelector('.main form').style.display='none';
@@ -474,8 +540,7 @@ async function submitForm(){
   }catch(x){
     err.textContent='Nepodařilo se odeslat. Zkuste to prosím znovu nebo nás kontaktujte na tomas@frydek.cz';
     err.style.display='block';
-    btn.disabled=false;
-    btn.textContent='Odeslat profil →';
+    btn.disabled=false;btn.textContent='Odeslat profil →';
   }
 }
 </script>
